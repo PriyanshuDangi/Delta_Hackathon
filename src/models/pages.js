@@ -17,11 +17,7 @@ const siteSchema = new mongoose.Schema(
       required: true,
       ref: "user",
     },
-    collab: [
-      {
-        type: mongoose.SchemaTypes.ObjectId,
-      },
-    ],
+    canEdit: [{ type: String }],
   },
   {
     timestamps: true,

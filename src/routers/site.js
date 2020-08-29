@@ -64,10 +64,14 @@ router.get("/editPage/:pid", checkAuth, async (req, res) => {
   try {
     const page = await Page.findOne({
       _id: req.params.pid,
-      owner: req.user._id,
     });
     if (!page) {
       throw new Error();
+    }
+    if (String(page.owner) !== String(req.user._id)) {
+      if (page.canEdit.indexOf(req.user.email) === -1) {
+        throw new Error();
+      }
     }
     res.render("editPage", {
       pageId: page._id,
@@ -82,12 +86,16 @@ router.get("/editPage/:pid", checkAuth, async (req, res) => {
 
 router.post("/editPage/:pid", checkAuth, async (req, res) => {
   try {
-    const page = await Page.findOne({
+    let page = await Page.findOne({
       _id: req.params.pid,
-      owner: req.user._id,
     });
     if (!page) {
       throw new Error();
+    }
+    if (String(page.owner) !== String(req.user._id)) {
+      if (page.canEdit.indexOf(req.user.email) === -1) {
+        throw new Error();
+      }
     }
     page.title = req.body.title;
     page.link = req.body.link;
