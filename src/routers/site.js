@@ -112,6 +112,29 @@ router.post("/editPage/:pid", checkAuth, async (req, res) => {
   }
 });
 
+router.get("/deletePage/:pid", checkAuth, async (req, res) => {
+  try {
+    let page = await Page.findOne({
+      _id: req.params.pid,
+      owner: req.user._id,
+    });
+    if (!page) {
+      throw new Error();
+    }
+    if (page.link == "/") {
+      req.flash("error_msg", "Cannot remove home page");
+      return res.redirect("/pages");
+    }
+    await page.remove();
+    req.flash("success_msg", "Page deleted");
+    res.redirect("/pages");
+  } catch (err) {
+    req.flash("error_msg", "Unable to get the requested page");
+    res.redirect("/pages");
+    console.log(err);
+  }
+});
+
 router.get("/header", checkAuth, async (req, res) => {
   try {
     res.render("myheader", {

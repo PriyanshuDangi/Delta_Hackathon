@@ -17,6 +17,7 @@ router.get("/signup", (req, res) => {
 router.post("/signup", async (req, res) => {
   try {
     const user = new User(req.body);
+    user.header.brand = req.body.name;
     const page = new Page({ owner: user._id, link: "/", title: "home" });
     await user.save();
     await page.save();

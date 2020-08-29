@@ -4,9 +4,11 @@ const siteSchema = new mongoose.Schema(
   {
     title: {
       type: String,
+      default: "title",
     },
     link: {
       type: String,
+      default: "link",
     },
     content: {
       type: String,
