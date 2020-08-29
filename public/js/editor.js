@@ -125,12 +125,14 @@ select.innerHTML = options;
 // }
 const id = document.getElementById("id").textContent;
 const $form = document.getElementById("form");
-const $pagelink = document.getElementById("pagelink");
+const pagelink = document.getElementById("pagelink");
+const pageTitle = document.getElementById("pageTitle");
 
 $form.addEventListener("submit", (event) => {
   event.preventDefault();
   var content = editor.innerHTML;
   var link = pagelink.value;
+  var title = pageTitle.value;
   fetch(`/editPage/${id}`, {
     method: "POST",
     headers: {
@@ -139,6 +141,7 @@ $form.addEventListener("submit", (event) => {
     body: JSON.stringify({
       content,
       link,
+      title,
     }),
   })
     .then((response) => {

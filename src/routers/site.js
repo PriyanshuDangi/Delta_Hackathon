@@ -50,6 +50,7 @@ router.get("/addPage", checkAuth, async (req, res) => {
     await page.save();
     res.render("editPage", {
       pageId: page._id,
+      page,
     });
     console.log(page);
   } catch (err) {
@@ -70,6 +71,7 @@ router.get("/editPage/:pid", checkAuth, async (req, res) => {
     }
     res.render("editPage", {
       pageId: page._id,
+      page,
     });
   } catch (err) {
     req.flash("error_msg", "Unable to get the requested page");
@@ -87,6 +89,7 @@ router.post("/editPage/:pid", checkAuth, async (req, res) => {
     if (!page) {
       throw new Error();
     }
+    page.title = req.body.title;
     page.link = req.body.link;
     page.content = req.body.content;
     // res.render("editPage", {

@@ -51,6 +51,7 @@ app.use((req, res, next) => {
 //routers
 app.use(require("./src/routers/user"));
 app.use(require("./src/routers/site"));
+app.use("/yoursite", require("./src/routers/yoursite"));
 
 const PORT = process.env.PORT;
 

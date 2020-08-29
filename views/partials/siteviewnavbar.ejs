@@ -1,0 +1,39 @@
+<style>
+  nav a {
+    color: inherit;
+  }
+</style>
+<nav
+  class="navbar navbar-expand-lg"
+  style="
+    background-color: <%= owner.header.background %>;
+    color: <%= owner.header.color %>;
+  "
+>
+  <a class="navbar-brand" href="/dashboard"><h2>Minipal</h2></a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% for(let j=0 ; j < owner.headerLinks.length; j++ ) {%>
+      <li class="nav-item active">
+        <a
+          class="nav-link"
+          href="/yoursite/<%= owner._id %>/<%= owner.headerLinks[j].link %>"
+          ><%= owner.headerLinks[j].text %></a
+        >
+      </li>
+      <%}%>
+    </ul>
+  </div>
+</nav>

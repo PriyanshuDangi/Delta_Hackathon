@@ -6,17 +6,32 @@
 </nav> -->
 <form id="form">
   <div class="form-group inputlink">
+    <label for="pageTitle">Page title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="pageTitle"
+      aria-describedby="emailHelp"
+      value="<%= page.title%>"
+    />
+    <small id="emailHelp" class="form-text text-muted"
+      >enter the page link e.g. "/dashboard"
+    </small>
+  </div>
+  <div class="form-group inputlink">
     <label for="pagelink">Page Link</label>
     <input
       type="text"
       class="form-control"
       id="pagelink"
       aria-describedby="emailHelp"
+      value="<%= page.link%>"
     />
     <small id="emailHelp" class="form-text text-muted"
       >enter the page link e.g. "/dashboard"
     </small>
   </div>
+
   <div id="tools">
     <button
       type="button"
@@ -93,8 +108,7 @@
 
   <div id="editorContainer">
     <div id="editor" contenteditable="true">
-      <div><font face="Times New Roman">Welcome</font></div>
-      <div></div>
+      <div><%- page.content%></div>
     </div>
   </div>
   <div id="button">

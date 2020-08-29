@@ -2,9 +2,11 @@ const mongoose = require("mongoose");
 
 const siteSchema = new mongoose.Schema(
   {
+    title: {
+      type: String,
+    },
     link: {
       type: String,
-      unique: true,
     },
     content: {
       type: String,
@@ -34,6 +36,6 @@ const siteSchema = new mongoose.Schema(
 //   next();
 // });
 
-const Site = mongoose.model("site", siteSchema);
+const Site = mongoose.model("page", siteSchema);
 
 module.exports = Site;

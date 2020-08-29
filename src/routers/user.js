@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/user");
 const passport = require("passport");
+const Page = require("../models/pages");
 const checkAuth = require("../auth/checkAuth");
 
 const router = new express.Router();
@@ -16,7 +17,9 @@ router.get("/signup", (req, res) => {
 router.post("/signup", async (req, res) => {
   try {
     const user = new User(req.body);
+    const page = new Page({ owner: user._id, link: "/", title: "home" });
     await user.save();
+    await page.save();
     req.flash("success_msg", "you are now registered and can login");
     res.redirect("/login");
   } catch (err) {
@@ -29,6 +32,23 @@ router.post("/signup", async (req, res) => {
       req.flash("error_msg", "Sorry! Unable to register");
     }
     res.redirect("/signup");
+  }
+});
+
+router.get("/pages", checkAuth, async (req, res) => {
+  try {
+    let pages = await Page.find({ owner: req.user._id });
+    if (pages === null) {
+      throw new Error();
+    }
+    console.log(pages);
+    res.render("allpages", {
+      pages,
+    });
+  } catch (err) {
+    req.flash("error_msg", "Unable to get the requested page");
+    res.redirect("/dashboard");
+    console.log(err);
   }
 });
 
