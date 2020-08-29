@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  background-color: #eee;
+}
+#tools {
+  text-align: center;
+  padding: 30px 0 5px;
+  /* background: #aaa; */
+}
+.inputlink {
+  max-width: 400px;
+  margin: auto;
+}
+#tools button {
+  font-size: 32px;
+  margin: 5px;
+}
+#tools select {
+  font-size: 20px;
+  padding: 10px 0 2px;
+}
+#tools input {
+  height: 30px;
+  /* height: 0;
+    width: 0;
+    visibility: hidden; */
+}
+button.active {
+  background-color: black;
+  color: white;
+}
+#editorContainer {
+  display: flex;
+  height: 80vh;
+  align-items: center;
+}
+
+#editor {
+  background-color: white;
+  min-height: 60vh;
+  height: auto;
+  width: 80vw;
+  padding: 5px;
+  border: solid 1px;
+  margin: auto;
+  overflow-y: visible;
+}
+
+#editor img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+#button {
+  width: 100%;
+  text-align: center;
+  margin: 20px auto;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Node_BolierPlate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon index.js -e js,ejs",
+    "db": "/Users/91989/priyanshu/mongodb/bin/mongod.exe --dbpath=/Users/91989/priyanshu/mongodb-data"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.10.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.4"
+  }
+}

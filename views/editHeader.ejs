@@ -1,0 +1,155 @@
+<style>
+  .header-links {
+    max-width: 450px;
+    margin: auto;
+  }
+  .input-group {
+    margin: 10px auto;
+  }
+</style>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page" style="margin: auto">
+      Edit Header
+    </li>
+  </ol>
+</nav>
+
+<form class="header-links" action="/editHeader" method="POST">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Header Brand Name</label>
+    <input
+      name="headerBrand"
+      type="text"
+      class="form-control"
+      id="exampleInputEmail1"
+      aria-describedby="emailHelp"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="color">Color</label>
+    <input
+      name="Color"
+      type="color"
+      class="form-control"
+      id="color"
+      aria-describedby="emailHelp"
+      required
+    />
+  </div>
+  <div class="form-group">
+    <label for="backgroundcolor">Background Color</label>
+    <input
+      name="background"
+      type="color"
+      class="form-control"
+      id="backgroundcolor"
+      aria-describedby="emailHelp"
+    />
+  </div>
+  <div class="form-group">
+    <label>Header Links</label>
+    <small id="emailHelp" class="form-text text-muted"
+      >Atleast three are required</small
+    >
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">1 Text And Link *</span>
+    </div>
+    <input
+      name="text1"
+      type="text"
+      aria-label="First name"
+      class="form-control"
+      required
+    />
+    <input
+      name="link1"
+      type="text"
+      aria-label="Last name"
+      class="form-control"
+      value="/"
+      required
+    />
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">2 Text And Link *</span>
+    </div>
+    <input
+      name="text2"
+      type="text"
+      aria-label="First name"
+      class="form-control"
+      required
+    />
+    <input
+      name="link2"
+      type="text"
+      aria-label="Last name"
+      class="form-control"
+      value="/"
+      required
+    />
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">3 Text And Link *</span>
+    </div>
+    <input
+      name="text3"
+      type="text"
+      aria-label="First name"
+      class="form-control"
+      required
+    />
+    <input
+      name="link3"
+      type="text"
+      aria-label="Last name"
+      class="form-control"
+      value="/"
+      required
+    />
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">4 Text And Link</span>
+    </div>
+    <input
+      name="text4"
+      type="text"
+      aria-label="First name"
+      class="form-control"
+    />
+    <input
+      name="link4"
+      type="text"
+      aria-label="Last name"
+      class="form-control"
+      value="/"
+    />
+  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">5 Text And Link</span>
+    </div>
+    <input
+      name="text5"
+      type="text"
+      aria-label="First name"
+      class="form-control"
+    />
+    <input
+      name="link5"
+      type="text"
+      aria-label="Last name"
+      class="form-control"
+      value="/"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+</form>
