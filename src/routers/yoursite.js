@@ -18,6 +18,7 @@ router.get("/:id", async (req, res) => {
       page,
     });
   } catch (err) {
+    res.status(400).send();
     console.log(err);
   }
 });
@@ -38,6 +39,8 @@ router.get("/:id/:link", async (req, res) => {
       page: page,
     });
   } catch (err) {
+    req.flash("error_msg", "unable to find the requested page");
+    res.redirect("/yoursite/" + req.params.id);
     console.log(err);
   }
 });
