@@ -112,4 +112,16 @@ router.post("/editPage/:pid", checkAuth, async (req, res) => {
   }
 });
 
+router.get("/header", checkAuth, async (req, res) => {
+  try {
+    res.render("myheader", {
+      owner: req.user,
+    });
+  } catch (err) {
+    req.flash("error_msg", "Unable to get the requested page");
+    res.redirect("/dashboard");
+    console.log(err);
+  }
+});
+
 module.exports = router;

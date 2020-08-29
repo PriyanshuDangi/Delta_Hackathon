@@ -10,7 +10,9 @@
     color: <%= owner.header.color %>;
   "
 >
-  <a class="navbar-brand" href="/dashboard"><h2>Minipal</h2></a>
+  <a class="navbar-brand" href="/yoursite/<%= owner._id %>"
+    ><h2><%= owner.header.brand %></h2></a
+  >
   <button
     class="navbar-toggler"
     type="button"
