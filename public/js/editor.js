@@ -39,11 +39,15 @@ function getImage() {
     reader.readAsDataURL(file);
   }
 }
-
 function fontSize() {
   var fontSize = prompt("Enter your fontsize in range (1-7)");
-  document.execCommand("fontSize", false, event.target.value);
+  document.execCommand("fontSize", false, fontSize);
 }
+
+// function fontSize() {
+//   var fontSize = prompt("Enter your fontsize in range (1-7)");
+//   document.execCommand("fontSize", false, event.target.value);
+// }
 
 const colorInput = document.getElementById("color");
 const showColor = () => {
